@@ -1,0 +1,32 @@
+import { IntNullableFilter } from "../../util/IntNullableFilter";
+import { FloatNullableFilter } from "../../util/FloatNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { BrandInfoWhereUniqueInput } from "../brandInfo/BrandInfoWhereUniqueInput";
+import { StringFilter } from "../../util/StringFilter";
+import { ProductCategoryWhereUniqueInput } from "../productCategory/ProductCategoryWhereUniqueInput";
+import { ProductPicInfoListRelationFilter } from "../productPicInfo/ProductPicInfoListRelationFilter";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { SupplierInfoWhereUniqueInput } from "../supplierInfo/SupplierInfoWhereUniqueInput";
+
+export type ProductSPUInfoWhereInput = {
+  auditStatus?: IntNullableFilter;
+  averageCost?: FloatNullableFilter;
+  barCode?: StringNullableFilter;
+  brandId?: BrandInfoWhereUniqueInput;
+  descript?: StringNullableFilter;
+  id?: StringFilter;
+  oneCategoryId?: ProductCategoryWhereUniqueInput;
+  picInfoProductId?: ProductPicInfoListRelationFilter;
+  price?: FloatNullableFilter;
+  productCore?: StringNullableFilter;
+  productionDate?: DateTimeNullableFilter;
+  productKeywords?: StringNullableFilter;
+  productName?: StringNullableFilter;
+  productSubtitle?: StringNullableFilter;
+  publishStatus?: IntNullableFilter;
+  purchasePrice?: FloatNullableFilter;
+  shelfLife?: IntNullableFilter;
+  supplierId?: SupplierInfoWhereUniqueInput;
+  threeCategoryId?: ProductCategoryWhereUniqueInput;
+  twoCategoryId?: ProductCategoryWhereUniqueInput;
+};
