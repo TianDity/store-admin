@@ -1,0 +1,113 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("POSTGRESQL_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     String[]
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model BrandInfo {
+  brandDesc      String?
+  brandLogo      String?
+  brandName      String?
+  brandOrder     String?
+  brandStatus    Int?
+  createdAt      DateTime      @default(now())
+  id             String        @id @default(cuid())
+  productBrandId ProductInfo[]
+  updatedAt      DateTime      @updatedAt
+}
+
+model ProductCategory {
+  categoryCode           String?
+  categoryLevel          String?
+  categoryName           String?
+  categoryStatus         EnumProductCategoryCategoryStatus?
+  createdAt              DateTime                           @default(now())
+  id                     String                             @id @default(cuid())
+  parentId               String?
+  productOneCategoryId   ProductInfo[]                      @relation(name: "oneCategoryId")
+  productThreeCategoryId ProductInfo[]                      @relation(name: "productThreeCategoryId")
+  productTwoCategoryId   ProductInfo[]                      @relation(name: "productTwoCategoryId")
+  updatedAt              DateTime                           @updatedAt
+}
+
+model SupplierInfo {
+  address           String?
+  bankAccount       String?
+  bankName          String?
+  createdAt         DateTime                        @default(now())
+  id                String                          @id @default(cuid())
+  linkMan           String?
+  phoneNumber       String?
+  productSupplierId ProductInfo[]
+  supplierCode      String?
+  supplierName      String?
+  supplierStatus    EnumSupplierInfoSupplierStatus?
+  supplierType      String?
+  updatedAt         DateTime                        @updatedAt
+}
+
+model ProductInfo {
+  auditStatus       Int?
+  averageCost       Float?
+  barCode           String?
+  brandId           BrandInfo?       @relation(fields: [brandIdId], references: [id])
+  brandIdId         String?
+  createdAt         DateTime         @default(now())
+  descript          String?
+  id                String           @id @default(cuid())
+  oneCategoryId     ProductCategory? @relation(name: "oneCategoryId", fields: [oneCategoryIdId], references: [id])
+  oneCategoryIdId   String?
+  picInfoProductId  ProductPicInfo[]
+  price             Float?
+  productCore       String?
+  productionDate    DateTime?
+  productKeywords   String?
+  productName       String?
+  productSubtitle   String?
+  publishStatus     Int?
+  purchasePrice     Float?
+  shelfLife         Int?
+  supplierId        SupplierInfo?    @relation(fields: [supplierIdId], references: [id])
+  supplierIdId      String?
+  threeCategoryId   ProductCategory? @relation(name: "productThreeCategoryId", fields: [threeCategoryIdId], references: [id])
+  threeCategoryIdId String?
+  twoCategoryId     ProductCategory? @relation(name: "productTwoCategoryId", fields: [twoCategoryIdId], references: [id])
+  twoCategoryIdId   String?
+  updatedAt         DateTime         @updatedAt
+}
+
+model ProductPicInfo {
+  createdAt   DateTime     @default(now())
+  id          String       @id @default(cuid())
+  isMaster    Int?
+  ossKey      String?
+  picDesc     String?
+  picOrder    String?
+  picStatus   Int?
+  picUrl      String?
+  productId   ProductInfo? @relation(fields: [productIdId], references: [id])
+  productIdId String?
+  updatedAt   DateTime     @updatedAt
+}
+
+enum EnumProductCategoryCategoryStatus {
+  Option1
+}
+
+enum EnumSupplierInfoSupplierStatus {
+  Option1
+}
