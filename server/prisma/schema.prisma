@@ -1,0 +1,88 @@
+datasource postgres {
+  provider = "postgresql"
+  url      = env("POSTGRESQL_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  createdAt DateTime @default(now())
+  firstName String?
+  id        String   @id @default(cuid())
+  lastName  String?
+  password  String
+  roles     String[]
+  updatedAt DateTime @updatedAt
+  username  String   @unique
+}
+
+model BrandInfo {
+  brandDesc   String?
+  brandLogo   String?
+  brandName   String?
+  brandOrder  String?
+  brandStatus Int?
+  createdAt   DateTime @default(now())
+  id          String   @id @default(cuid())
+  updatedAt   DateTime @updatedAt
+}
+
+model ProductCategory {
+  categoryCode   String?
+  categoryLevel  String?
+  categoryName   String?
+  categoryStatus EnumProductCategoryCategoryStatus?
+  createdAt      DateTime                           @default(now())
+  id             String                             @id @default(cuid())
+  parentId       String?
+  updatedAt      DateTime                           @updatedAt
+}
+
+model SupplierInfo {
+  address        String?
+  bankAccount    String?
+  bankName       String?
+  createdAt      DateTime                        @default(now())
+  id             String                          @id @default(cuid())
+  linkMan        String?
+  phoneNumber    String?
+  supplierCode   String?
+  supplierName   String?
+  supplierStatus EnumSupplierInfoSupplierStatus?
+  supplierType   String?
+  updatedAt      DateTime                        @updatedAt
+}
+
+model ProductInfo {
+  auditStatus     Int?
+  averageCost     Float?
+  barCode         String?
+  brandId         Int?
+  createdAt       DateTime  @default(now())
+  descript        String?
+  id              String    @id @default(cuid())
+  oneCategoryId   Int?
+  price           Float?
+  productCore     String?
+  productionDate  DateTime?
+  productKeywords String?
+  productName     String?
+  productSubtitle String?
+  publishStatus   Int?
+  purchasePrice   Float?
+  shelfLife       Int?
+  supplierId      String?
+  threeCategoryId Int?
+  twoCategoryId   Int?
+  updatedAt       DateTime  @updatedAt
+}
+
+enum EnumProductCategoryCategoryStatus {
+  Option1
+}
+
+enum EnumSupplierInfoSupplierStatus {
+  Option1
+}

@@ -1,0 +1,23 @@
+export type ProductInfo = {
+  auditStatus: number | null;
+  averageCost: number | null;
+  barCode: string | null;
+  brandId: number | null;
+  createdAt: Date;
+  descript: string | null;
+  id: string;
+  oneCategoryId: number | null;
+  price: number | null;
+  productCore: string | null;
+  productionDate: Date | null;
+  productKeywords: string | null;
+  productName: string | null;
+  productSubtitle: string | null;
+  publishStatus: number | null;
+  purchasePrice: number | null;
+  shelfLife: number | null;
+  supplierId: string | null;
+  threeCategoryId: number | null;
+  twoCategoryId: number | null;
+  updatedAt: Date;
+};
