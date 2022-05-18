@@ -237,6 +237,7 @@ export class BrandInfoControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,

@@ -239,6 +239,7 @@ export class ProductCategoryControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,
@@ -381,6 +382,7 @@ export class ProductCategoryControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,
@@ -523,6 +525,7 @@ export class ProductCategoryControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,

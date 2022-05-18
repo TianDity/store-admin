@@ -15,6 +15,7 @@ export type ProductInfo = {
   picInfoProductId?: Array<ProductPicInfo>;
   price: number | null;
   productCore: string | null;
+  productDetail: string | null;
   productionDate: Date | null;
   productKeywords: string | null;
   productName: string | null;

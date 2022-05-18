@@ -259,6 +259,7 @@ export class SupplierInfoControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,

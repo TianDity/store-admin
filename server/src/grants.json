@@ -72,7 +72,7 @@
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "administrator",
     "resource": "BrandInfo",
     "action": "create:any",
     "attributes": "*"
@@ -80,25 +80,7 @@
   {
     "role": "administrator",
     "resource": "BrandInfo",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "BrandInfo",
     "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "administrator",
-    "resource": "BrandInfo",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "BrandInfo",
-    "action": "delete:any",
     "attributes": "*"
   },
   {
@@ -132,7 +114,7 @@
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "administrator",
     "resource": "ProductCategory",
     "action": "create:any",
     "attributes": "*"
@@ -140,25 +122,7 @@
   {
     "role": "administrator",
     "resource": "ProductCategory",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ProductCategory",
     "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "administrator",
-    "resource": "ProductCategory",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ProductCategory",
-    "action": "delete:any",
     "attributes": "*"
   },
   {
@@ -192,7 +156,7 @@
     "attributes": "*"
   },
   {
-    "role": "user",
+    "role": "administrator",
     "resource": "SupplierInfo",
     "action": "create:any",
     "attributes": "*"
@@ -200,25 +164,7 @@
   {
     "role": "administrator",
     "resource": "SupplierInfo",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "SupplierInfo",
     "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "administrator",
-    "resource": "SupplierInfo",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "SupplierInfo",
-    "action": "delete:any",
     "attributes": "*"
   },
   {
@@ -240,45 +186,15 @@
     "attributes": "*"
   },
   {
-    "role": "user",
-    "resource": "ProductInfo",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "administrator",
-    "resource": "ProductInfo",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ProductInfo",
-    "action": "create:any",
-    "attributes": "*"
-  },
-  {
     "role": "administrator",
     "resource": "ProductInfo",
     "action": "create:any",
     "attributes": "*"
   },
   {
-    "role": "user",
-    "resource": "ProductInfo",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
     "role": "administrator",
     "resource": "ProductInfo",
     "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ProductInfo",
-    "action": "delete:any",
     "attributes": "*"
   },
   {
@@ -297,24 +213,6 @@
     "role": "administrator",
     "resource": "ProductInfo",
     "action": "read:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ProductPicInfo",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "administrator",
-    "resource": "ProductPicInfo",
-    "action": "read:own",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ProductPicInfo",
-    "action": "create:any",
     "attributes": "*"
   },
   {
@@ -324,21 +222,9 @@
     "attributes": "*"
   },
   {
-    "role": "user",
-    "resource": "ProductPicInfo",
-    "action": "update:any",
-    "attributes": "*"
-  },
-  {
     "role": "administrator",
     "resource": "ProductPicInfo",
     "action": "update:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "ProductPicInfo",
-    "action": "delete:any",
     "attributes": "*"
   },
   {

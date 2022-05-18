@@ -21,6 +21,7 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { ProductInfoService } from "../productInfo.service";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { ProductInfoCreateInput } from "./ProductInfoCreateInput";
 import { ProductInfoWhereInput } from "./ProductInfoWhereInput";
 import { ProductInfoWhereUniqueInput } from "./ProductInfoWhereUniqueInput";
@@ -107,6 +108,7 @@ export class ProductInfoControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,
@@ -176,6 +178,7 @@ export class ProductInfoControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,
@@ -208,12 +211,7 @@ export class ProductInfoControllerBase {
     });
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "own",
-  })
+  @Public()
   @common.Get("/:id")
   @swagger.ApiOkResponse({ type: ProductInfo })
   @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
@@ -246,6 +244,7 @@ export class ProductInfoControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,
@@ -357,6 +356,7 @@ export class ProductInfoControllerBase {
 
           price: true,
           productCore: true,
+          productDetail: true,
           productionDate: true,
           productKeywords: true,
           productName: true,
@@ -435,6 +435,7 @@ export class ProductInfoControllerBase {
 
           price: true,
           productCore: true,
+          productDetail: true,
           productionDate: true,
           productKeywords: true,
           productName: true,

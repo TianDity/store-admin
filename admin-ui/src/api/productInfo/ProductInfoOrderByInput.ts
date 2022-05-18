@@ -11,6 +11,7 @@ export type ProductInfoOrderByInput = {
   oneCategoryIdId?: SortOrder;
   price?: SortOrder;
   productCore?: SortOrder;
+  productDetail?: SortOrder;
   productionDate?: SortOrder;
   productKeywords?: SortOrder;
   productName?: SortOrder;
