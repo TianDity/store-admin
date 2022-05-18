@@ -21,6 +21,7 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { ProductPicInfoService } from "../productPicInfo.service";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { ProductPicInfoCreateInput } from "./ProductPicInfoCreateInput";
 import { ProductPicInfoWhereInput } from "./ProductPicInfoWhereInput";
 import { ProductPicInfoWhereUniqueInput } from "./ProductPicInfoWhereUniqueInput";
@@ -113,12 +114,7 @@ export class ProductPicInfoControllerBase {
     });
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @nestAccessControl.UseRoles({
-    resource: "ProductPicInfo",
-    action: "read",
-    possession: "own",
-  })
+  @Public()
   @common.Get("/:id")
   @swagger.ApiOkResponse({ type: ProductPicInfo })
   @swagger.ApiNotFoundResponse({ type: errors.NotFoundException })
