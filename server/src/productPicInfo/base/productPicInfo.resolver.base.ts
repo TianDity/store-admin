@@ -18,6 +18,7 @@ import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { isRecordNotFoundError } from "../../prisma.util";
 import { MetaQueryPayload } from "../../util/MetaQueryPayload";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { CreateProductPicInfoArgs } from "./CreateProductPicInfoArgs";
 import { UpdateProductPicInfoArgs } from "./UpdateProductPicInfoArgs";
@@ -68,13 +69,8 @@ export class ProductPicInfoResolverBase {
     return this.service.findMany(args);
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @Public()
   @graphql.Query(() => ProductPicInfo, { nullable: true })
-  @nestAccessControl.UseRoles({
-    resource: "ProductPicInfo",
-    action: "read",
-    possession: "own",
-  })
   async productPicInfo(
     @graphql.Args() args: ProductPicInfoFindUniqueArgs
   ): Promise<ProductPicInfo | null> {
@@ -163,13 +159,8 @@ export class ProductPicInfoResolverBase {
     }
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @Public()
   @graphql.ResolveField(() => ProductInfo, { nullable: true })
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
   async productId(
     @graphql.Parent() parent: ProductPicInfo
   ): Promise<ProductInfo | null> {
