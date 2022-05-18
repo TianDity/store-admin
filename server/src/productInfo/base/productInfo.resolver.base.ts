@@ -17,8 +17,9 @@ import { GqlDefaultAuthGuard } from "../../auth/gqlDefaultAuth.guard";
 import * as gqlACGuard from "../../auth/gqlAC.guard";
 import { isRecordNotFoundError } from "../../prisma.util";
 import { MetaQueryPayload } from "../../util/MetaQueryPayload";
-import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
+import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
 import { CreateProductInfoArgs } from "./CreateProductInfoArgs";
 import { UpdateProductInfoArgs } from "./UpdateProductInfoArgs";
 import { DeleteProductInfoArgs } from "./DeleteProductInfoArgs";
@@ -40,12 +41,8 @@ export class ProductInfoResolverBase {
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {}
 
+  @Public()
   @graphql.Query(() => MetaQueryPayload)
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
   async _productInfosMeta(
     @graphql.Args() args: ProductInfoFindManyArgs
   ): Promise<MetaQueryPayload> {
@@ -59,26 +56,16 @@ export class ProductInfoResolverBase {
     };
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @Public()
   @graphql.Query(() => [ProductInfo])
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
   async productInfos(
     @graphql.Args() args: ProductInfoFindManyArgs
   ): Promise<ProductInfo[]> {
     return this.service.findMany(args);
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @Public()
   @graphql.Query(() => ProductInfo, { nullable: true })
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "own",
-  })
   async productInfo(
     @graphql.Args() args: ProductInfoFindUniqueArgs
   ): Promise<ProductInfo | null> {

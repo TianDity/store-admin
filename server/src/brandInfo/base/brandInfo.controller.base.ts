@@ -21,6 +21,7 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { BrandInfoService } from "../brandInfo.service";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { BrandInfoCreateInput } from "./BrandInfoCreateInput";
 import { BrandInfoWhereInput } from "./BrandInfoWhereInput";
 import { BrandInfoWhereUniqueInput } from "./BrandInfoWhereUniqueInput";
@@ -199,12 +200,7 @@ export class BrandInfoControllerBase {
     }
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
+  @Public()
   @common.Get("/:id/productBrandId")
   @ApiNestedQuery(ProductInfoFindManyArgs)
   async findManyProductBrandId(
@@ -237,6 +233,7 @@ export class BrandInfoControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,

@@ -21,6 +21,7 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { SupplierInfoService } from "../supplierInfo.service";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { SupplierInfoCreateInput } from "./SupplierInfoCreateInput";
 import { SupplierInfoWhereInput } from "./SupplierInfoWhereInput";
 import { SupplierInfoWhereUniqueInput } from "./SupplierInfoWhereUniqueInput";
@@ -221,12 +222,7 @@ export class SupplierInfoControllerBase {
     }
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
+  @Public()
   @common.Get("/:id/productSupplierId")
   @ApiNestedQuery(ProductInfoFindManyArgs)
   async findManyProductSupplierId(
@@ -259,6 +255,7 @@ export class SupplierInfoControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,
