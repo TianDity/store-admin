@@ -19,6 +19,7 @@ import { isRecordNotFoundError } from "../../prisma.util";
 import { MetaQueryPayload } from "../../util/MetaQueryPayload";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { CreateBrandInfoArgs } from "./CreateBrandInfoArgs";
 import { UpdateBrandInfoArgs } from "./UpdateBrandInfoArgs";
 import { DeleteBrandInfoArgs } from "./DeleteBrandInfoArgs";
@@ -148,13 +149,8 @@ export class BrandInfoResolverBase {
     }
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @Public()
   @graphql.ResolveField(() => [ProductInfo])
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
   async productBrandId(
     @graphql.Parent() parent: BrandInfo,
     @graphql.Args() args: ProductInfoFindManyArgs

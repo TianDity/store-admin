@@ -21,6 +21,7 @@ import { ApiNestedQuery } from "../../decorators/api-nested-query.decorator";
 import { ProductCategoryService } from "../productCategory.service";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { ProductCategoryCreateInput } from "./ProductCategoryCreateInput";
 import { ProductCategoryWhereInput } from "./ProductCategoryWhereInput";
 import { ProductCategoryWhereUniqueInput } from "./ProductCategoryWhereUniqueInput";
@@ -201,12 +202,7 @@ export class ProductCategoryControllerBase {
     }
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
+  @Public()
   @common.Get("/:id/productOneCategoryId")
   @ApiNestedQuery(ProductInfoFindManyArgs)
   async findManyProductOneCategoryId(
@@ -239,6 +235,7 @@ export class ProductCategoryControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,
@@ -343,12 +340,7 @@ export class ProductCategoryControllerBase {
     });
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
+  @Public()
   @common.Get("/:id/productThreeCategoryId")
   @ApiNestedQuery(ProductInfoFindManyArgs)
   async findManyProductThreeCategoryId(
@@ -381,6 +373,7 @@ export class ProductCategoryControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,
@@ -485,12 +478,7 @@ export class ProductCategoryControllerBase {
     });
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
+  @Public()
   @common.Get("/:id/productTwoCategoryId")
   @ApiNestedQuery(ProductInfoFindManyArgs)
   async findManyProductTwoCategoryId(
@@ -523,6 +511,7 @@ export class ProductCategoryControllerBase {
 
         price: true,
         productCore: true,
+        productDetail: true,
         productionDate: true,
         productKeywords: true,
         productName: true,

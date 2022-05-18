@@ -44,6 +44,7 @@ export const ProductInfoList = (props: ListProps): React.ReactElement => {
         </ReferenceField>
         <TextField label="price" source="price" />
         <TextField label="product_core" source="productCore" />
+        <TextField label="product_detail" source="productDetail" />
         <TextField label="production_date" source="productionDate" />
         <TextField label="product_keywords" source="productKeywords" />
         <TextField label="product_name" source="productName" />

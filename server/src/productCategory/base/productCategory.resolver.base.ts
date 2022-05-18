@@ -19,6 +19,7 @@ import { isRecordNotFoundError } from "../../prisma.util";
 import { MetaQueryPayload } from "../../util/MetaQueryPayload";
 import { AclFilterResponseInterceptor } from "../../interceptors/aclFilterResponse.interceptor";
 import { AclValidateRequestInterceptor } from "../../interceptors/aclValidateRequest.interceptor";
+import { Public } from "../../decorators/public.decorator";
 import { CreateProductCategoryArgs } from "./CreateProductCategoryArgs";
 import { UpdateProductCategoryArgs } from "./UpdateProductCategoryArgs";
 import { DeleteProductCategoryArgs } from "./DeleteProductCategoryArgs";
@@ -148,13 +149,8 @@ export class ProductCategoryResolverBase {
     }
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @Public()
   @graphql.ResolveField(() => [ProductInfo])
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
   async productOneCategoryId(
     @graphql.Parent() parent: ProductCategory,
     @graphql.Args() args: ProductInfoFindManyArgs
@@ -171,13 +167,8 @@ export class ProductCategoryResolverBase {
     return results;
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @Public()
   @graphql.ResolveField(() => [ProductInfo])
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
   async productThreeCategoryId(
     @graphql.Parent() parent: ProductCategory,
     @graphql.Args() args: ProductInfoFindManyArgs
@@ -194,13 +185,8 @@ export class ProductCategoryResolverBase {
     return results;
   }
 
-  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @Public()
   @graphql.ResolveField(() => [ProductInfo])
-  @nestAccessControl.UseRoles({
-    resource: "ProductInfo",
-    action: "read",
-    possession: "any",
-  })
   async productTwoCategoryId(
     @graphql.Parent() parent: ProductCategory,
     @graphql.Args() args: ProductInfoFindManyArgs

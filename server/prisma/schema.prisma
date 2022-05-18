@@ -74,6 +74,7 @@ model ProductInfo {
   picInfoProductId  ProductPicInfo[]
   price             Float?
   productCore       String?
+  productDetail     String?
   productionDate    DateTime?
   productKeywords   String?
   productName       String?
