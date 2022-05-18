@@ -137,6 +137,17 @@ class ProductInfo {
 
   @ApiProperty({
     required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  productDetail!: string | null;
+
+  @ApiProperty({
+    required: false,
   })
   @IsDate()
   @Type(() => Date)

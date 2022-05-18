@@ -50,6 +50,7 @@ export const ProductInfoCreate = (props: CreateProps): React.ReactElement => {
         </ReferenceArrayInput>
         <NumberInput label="price" source="price" />
         <TextInput label="product_core" source="productCore" />
+        <TextInput label="product_detail" source="productDetail" />
         <DateInput label="production_date" source="productionDate" />
         <TextInput label="product_keywords" source="productKeywords" />
         <TextInput label="product_name" source="productName" />

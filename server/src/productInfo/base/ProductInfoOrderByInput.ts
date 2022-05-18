@@ -115,6 +115,15 @@ class ProductInfoOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  productDetail?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   productionDate?: SortOrder;
 
   @ApiProperty({

@@ -13,6 +13,7 @@ export type ProductInfoCreateInput = {
   picInfoProductId?: ProductPicInfoCreateNestedManyWithoutProductInfosInput;
   price?: number | null;
   productCore?: string | null;
+  productDetail?: string | null;
   productionDate?: Date | null;
   productKeywords?: string | null;
   productName?: string | null;

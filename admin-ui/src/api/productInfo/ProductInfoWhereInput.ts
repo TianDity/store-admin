@@ -19,6 +19,7 @@ export type ProductInfoWhereInput = {
   picInfoProductId?: ProductPicInfoListRelationFilter;
   price?: FloatNullableFilter;
   productCore?: StringNullableFilter;
+  productDetail?: StringNullableFilter;
   productionDate?: DateTimeNullableFilter;
   productKeywords?: StringNullableFilter;
   productName?: StringNullableFilter;
